@@ -1,0 +1,19 @@
+{
+    "name": "dopecode/retro",
+    "description": "PHP retro function shims",
+    "tags": ["shim", "array_column", "hex2bin"],
+	"license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Meyer",
+            "email": "m.meyer2k@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+	"autoload": {
+        "files": ["vendor/dopecode/retro/src/retro.php"]
+    },
+    "minimum-stability": "dev"
+}
