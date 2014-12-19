@@ -2,7 +2,7 @@
     "name": "dopecode/retro",
     "description": "PHP retro function shims",
     "tags": ["shim", "array_column", "hex2bin"],
-	"license": "MIT",
+    "license": "MIT",
     "authors": [
         {
             "name": "Michael Meyer",
