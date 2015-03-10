@@ -17,13 +17,13 @@
  */
 if(!function_exists('str_putcsv'))
 {
-    function str_putcsv($input, $delimiter = ',', $enclosure = '"')
+    function str_putcsv($input, $delimiter = ',', $enclosure = '"', $escape_char = "\")
     {
         // Open a memory "file" for read/write...
         $fp = fopen('php://temp', 'r+');
         // ... write the $input array to the "file" using fputcsv()...
         foreach($input as $i) {
-            fputcsv($fp, $i, $delimiter, $enclosure);
+            fputcsv($fp, $i, $delimiter, $enclosure, $escape_char);
         }
         // ... rewind the "file" so we can read what we just wrote...
         rewind($fp);
