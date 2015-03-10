@@ -17,7 +17,7 @@
  */
 if(!function_exists('str_putcsv'))
 {
-    function str_putcsv($input, $delimiter = ',', $enclosure = '"', $escape_char = "\")
+    function str_putcsv($input, $delimiter = ',', $enclosure = '"', $escape_char = '\')
     {
         // Open a memory "file" for read/write...
         $fp = fopen('php://temp', 'r+');
