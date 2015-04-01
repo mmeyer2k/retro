@@ -16,6 +16,14 @@
  */
 if (!function_exists('str_putcsv')) {
 
+    /**
+     * 
+     * @param type $input
+     * @param type $delimiter
+     * @param type $enclosure
+     * @param type $escape_char
+     * @return type
+     */
     function str_putcsv($input, $delimiter = ',', $enclosure = '"', $escape_char = '\\')
     {
         // Open a memory "file" for read/write...
@@ -176,20 +184,42 @@ if (!function_exists('array_column')) {
 
 }
 
+if (!function_exists('xml2object')) {
+
+    /**
+     * 
+     * @param type $xml
+     * @return type
+     */
+    function xml2object($xml)
+    {
+        return simplexml_load_string($xml);
+    }
+
+}
+
 if (!function_exists('xml2array')) {
 
-    function xml2array($xmlstring)
+    /**
+     * 
+     * @param type $xml
+     * @return type
+     */
+    function xml2object($xml)
     {
-        $xml = simplexml_load_string($xmlstring);
-        $json = json_encode($xml);
-
-        return json_decode($json, true);
+        return obj2arr(xml2object($xml));
     }
 
 }
 
 if (!function_exists('base32_encode')) {
 
+    /**
+     * Encode a string in base 32
+     * 
+     * @param string $str
+     * @return string
+     */
     function base32_encode($str)
     {
         $_b32table = '1bcd2fgh3jklmn4pqrstavwxyz567890';
@@ -213,6 +243,12 @@ if (!function_exists('base32_encode')) {
 
 if (!function_exists('base32_decode')) {
 
+    /**
+     * Decode a base32 encoded string
+     * 
+     * @param string $str
+     * @return string
+     */
     function base32_decode($str)
     {
         $_b32table = '1bcd2fgh3jklmn4pqrstavwxyz567890';
