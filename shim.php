@@ -11,18 +11,17 @@
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
  * @link     https://github.com/mmeyer2k/retro
  */
- 
 /*
  * Function to convert array to csv string
  */
-if(!function_exists('str_putcsv'))
-{
+if (!function_exists('str_putcsv')) {
+
     function str_putcsv($input, $delimiter = ',', $enclosure = '"', $escape_char = '\\')
     {
         // Open a memory "file" for read/write...
         $fp = fopen('php://temp', 'r+');
         // ... write the $input array to the "file" using fputcsv()...
-        foreach($input as $i) {
+        foreach ($input as $i) {
             fputcsv($fp, $i, $delimiter, $enclosure, $escape_char);
         }
         // ... rewind the "file" so we can read what we just wrote...
@@ -34,8 +33,9 @@ if(!function_exists('str_putcsv'))
         // ... and return the $data to the caller, with the trailing newline from fgets() removed.
         return rtrim($data, "\n");
     }
- }
- 
+
+}
+
 /**
  * Shim to allow for hex2bin in less than PHP 5.4.
  * 
@@ -182,8 +182,54 @@ if (!function_exists('xml2array')) {
     {
         $xml = simplexml_load_string($xmlstring);
         $json = json_encode($xml);
-        
+
         return json_decode($json, true);
+    }
+
+}
+
+if (!function_exists('base32_encode')) {
+
+    function base32_encode($str)
+    {
+        $_b32table = '1bcd2fgh3jklmn4pqrstavwxyz567890';
+        $n = strlen($str) * 8 / 5;
+        $arr = str_split($str, 1);
+        $m = '';
+        foreach ($arr as $c) {
+            $m .= str_pad(decbin(ord($c)), 8, '0', STR_PAD_LEFT);
+        }
+        $p = ceil(strlen($m) / 5) * 5;
+        $m = str_pad($m, $p, '0', STR_PAD_RIGHT);
+        $newstr = '';
+        for ($i = 0; $i < $n; $i++) {
+            $newstr .= $_b32table[bindec(substr($m, $i * 5, 5))];
+        }
+
+        return $newstr;
+    }
+
+}
+
+if (!function_exists('base32_decode')) {
+
+    function base32_decode($str)
+    {
+        $_b32table = '1bcd2fgh3jklmn4pqrstavwxyz567890';
+        $n = strlen($str) * 5 / 8;
+        $arr = str_split($str, 1);
+        $m = '';
+        $split = str_split($_b32table);
+        foreach ($arr as $c) {
+            $m .= str_pad(decbin(array_search($c, $split)), 5, '0', STR_PAD_LEFT);
+        }
+        $oldstr = '';
+        $floor = floor($n);
+        for ($i = 0; $i < $floor; $i++) {
+            $oldstr .= chr(bindec(substr($m, $i * 8, 8)));
+        }
+
+        return $oldstr;
     }
 
 }
