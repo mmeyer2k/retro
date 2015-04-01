@@ -176,3 +176,14 @@ if (!function_exists('array_column')) {
 
 }
 
+if (!function_exists('xml2array')) {
+
+    function xml2array($xmlstring)
+    {
+        $xml = simplexml_load_string($xmlstring);
+        $json = json_encode($xml);
+        
+        return json_decode($json, true);
+    }
+
+}
