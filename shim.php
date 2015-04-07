@@ -214,7 +214,7 @@ if (!function_exists('xml2array')) {
 
 if (!function_exists('arr2obj')) {
     function arr2obj($arr) {
-        
+        return json_decode(json_encode($arr), false);
     }
 }
 
