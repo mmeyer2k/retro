@@ -212,6 +212,12 @@ if (!function_exists('xml2array')) {
 
 }
 
+if (!function_exists('arr2obj')) {
+    function arr2obj($arr) {
+        
+    }
+}
+
 if (!function_exists('base32_encode')) {
 
     /**
