@@ -205,7 +205,7 @@ if (!function_exists('xml2array')) {
      * @param type $xml
      * @return type
      */
-    function xml2object($xml)
+    function xml2array($xml)
     {
         return obj2arr(xml2object($xml));
     }
