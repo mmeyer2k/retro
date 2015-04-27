@@ -11,6 +11,29 @@
  * @license  http://opensource.org/licenses/MIT The MIT License (MIT)
  * @link     https://github.com/mmeyer2k/retro
  */
+
+if (!function_exists('rand_exclude')) {
+
+    /**
+     * 
+     * @param type $from
+     * @param type $to
+     * @param array $exceptions
+     * @return type
+     */
+    function rand_exclude($from, $to, array $exceptions)
+    {
+        $rand = rand($from, $to);
+        
+        while (in_array($rand, $exceptions)) {
+            $rand = rand();
+        }
+        
+        return $rand;
+    }
+
+}
+
 /*
  * Function to convert array to csv string
  */
