@@ -1,4 +1,7 @@
-retro
+retro(fit) PHP with some much needed functions
 =====
 
-Some PHP function compatibility shims (hex2bin and array_column)
+## Install
+
+This shim provides PHP 5.3+ support the following functions:
+
