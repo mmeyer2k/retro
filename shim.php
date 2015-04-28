@@ -15,14 +15,24 @@
 if (!function_exists('rand_exclude')) {
 
     /**
+     * Create a random number while excluding a number or numbers 
+     * in the range.
      * 
-     * @param type $from
-     * @param type $to
-     * @param array $exceptions
-     * @return type
+     * @param type      $from
+     * @param type      $to
+     * @param int|array $exceptions
+     * @return int
      */
-    function rand_exclude($from, $to, array $exceptions)
+    function rand_exclude($from, $to, $exceptions)
     {
+        if (is_integer($exceptions)) {
+            $exceptions = array($exceptions);
+        } 
+        
+        if (!is_array($exceptions)) {
+            
+        }
+        
         $rand = rand($from, $to);
         
         while (in_array($rand, $exceptions)) {
