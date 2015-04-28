@@ -1,4 +1,4 @@
-retro(fit) PHP with some much needed functions
+retro(fit) php
 =====
 
 ## Install
