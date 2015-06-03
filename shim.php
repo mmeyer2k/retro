@@ -290,6 +290,7 @@ if (!function_exists('base32_decode')) {
      */
     function base32_decode($str)
     {
+        $str = strtolower($str);
         $_b32table = '1bcd2fgh3jklmn4pqrstavwxyz567890';
         $n = strlen($str) * 5 / 8;
         $arr = str_split($str, 1);
