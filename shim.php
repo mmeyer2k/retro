@@ -309,3 +309,25 @@ if (!function_exists('base32_decode')) {
     }
 
 }
+
+if (!function_exists('obj2arr')) {
+    /**
+     * Convert object to array.
+     *
+     * @param object|array $obj Object to convert to array.
+     *
+     * @return array
+     */
+    function obj2arr($obj)
+    {
+        if (is_array($obj)) {
+            foreach ($obj as $i => $o) {
+                $obj[$i] = obj2arr($o);
+            }
+            return $obj;
+        } elseif (is_object($obj)) {
+            return json_decode(json_encode($obj), true);
+        }
+        return $obj;
+    }
+}
