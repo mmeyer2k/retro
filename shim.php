@@ -334,9 +334,9 @@ if (!function_exists('obj2arr')) {
 
 if (!function_exists('mysqltime')) {
     /**
-     * Convert object to array.
+     * Create a mysql DATETIME string.
      *
-     * @param object|array $obj Object to convert to array.
+     * @param int|null $timestamp PHP timestamp to convert to MySQL DATETIME format
      *
      * @return array
      */
