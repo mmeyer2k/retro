@@ -331,3 +331,22 @@ if (!function_exists('obj2arr')) {
         return $obj;
     }
 }
+
+if (!function_exists('mysqltime')) {
+    /**
+     * Convert object to array.
+     *
+     * @param object|array $obj Object to convert to array.
+     *
+     * @return array
+     */
+    function mysqltime($timestamp = null)
+    {
+        if ($timestamp === null) {
+            $timestamp = time();
+        }
+        
+        return date('Y-m-d H:i:s', $timestamp);
+    }
+}
+
