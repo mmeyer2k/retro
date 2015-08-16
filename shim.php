@@ -12,34 +12,26 @@
  * @link     https://github.com/mmeyer2k/retro
  */
 
-if (!function_exists('rand_exclude')) {
+if (!function_exists('mysql_escape')) {
 
     /**
-     * Create a random number while excluding a number or numbers 
-     * in the range.
+     * Mimics mysql_real_escape_string but without the need for
+     * a database connection.
      * 
-     * @param type      $from
-     * @param type      $to
-     * @param int|array $exceptions
-     * @return int
+     * @param string $from
+     * @return string
      */
-    function rand_exclude($from, $to, $exceptions)
+    function mysql_escape($str)
     {
-        if (is_integer($exceptions)) {
-            $exceptions = array($exceptions);
+        if(is_array($str)) {
+            return array_map(__METHOD__, $str); 
+        }
+        
+        if(!empty($str) && is_string($str)) { 
+            return str_replace(array('\\', "\0", "\n", "\r", "'", '"', "\x1a"), array('\\\\', '\\0', '\\n', '\\r', "\\'", '\\"', '\\Z'), $str); 
         } 
         
-        if (!is_array($exceptions)) {
-            
-        }
-        
-        $rand = rand($from, $to);
-        
-        while (in_array($rand, $exceptions)) {
-            $rand = rand();
-        }
-        
-        return $rand;
+        return $str;
     }
 
 }
