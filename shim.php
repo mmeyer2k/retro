@@ -18,7 +18,7 @@ if (!function_exists('mysql_escape')) {
      * Mimics mysql_real_escape_string but without the need for
      * a database connection.
      * 
-     * @param string $from
+     * @param string $str
      * @return string
      */
     function mysql_escape($str)
