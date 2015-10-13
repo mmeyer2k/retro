@@ -351,9 +351,9 @@ if (!function_exists('mysqltime')) {
 if (!function_exists('mysqldate')) {
 
     /**
-     * Create a mysql DATETIME string.
+     * Create a mysql DATE string.
      *
-     * @param int|null $timestamp PHP timestamp to convert to MySQL DATETIME format
+     * @param int|null $timestamp PHP timestamp to convert to MySQL DATE format
      *
      * @return array
      */
