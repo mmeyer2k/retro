@@ -348,6 +348,25 @@ if (!function_exists('mysqltime')) {
 
 }
 
+if (!function_exists('mysqldate')) {
+
+    /**
+     * Create a mysql DATETIME string.
+     *
+     * @param int|null $timestamp PHP timestamp to convert to MySQL DATETIME format
+     *
+     * @return array
+     */
+    function mysqldate($timestamp = null)
+    {
+        if ($timestamp === null) {
+            $timestamp = time();
+        }
+
+        return date('Y-m-d', $timestamp);
+    }
+
+}
 
 if (!function_exists('base62_encode')) {
 
