@@ -1,7 +1,6 @@
-retro(fit) php
+:dark_sunglasses: retro(fit) php
 =====
 
 ## Install
 
-This shim provides PHP 5.3+ support the following functions:
-
+This shim provides PHP 5.3+ support some important functions.
