@@ -42,11 +42,11 @@ if (!function_exists('str_putcsv')) {
 
     /**
      * 
-     * @param type $input
-     * @param type $delimiter
-     * @param type $enclosure
-     * @param type $escape_char
-     * @return type
+     * @param string $input
+     * @param string $delimiter
+     * @param string $enclosure
+     * @param string $escape_char
+     * @return string
      */
     function str_putcsv($input, $delimiter = ',', $enclosure = '"', $escape_char = '\\')
     {
